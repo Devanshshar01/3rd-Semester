@@ -35,13 +35,22 @@ The server runs on `http://localhost:3000`. Sign in using Clerk, open **Study ca
 
 ## Configuration
 
-- `CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`: Clerk server verification and profile lookup.
-- `VITE_CLERK_PUBLISHABLE_KEY`: public Clerk key used by Clerk.js. Must match the server's Clerk instance.
+- `CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`: Clerk server verification and profile lookup. Never expose the secret key to browser code.
+- `CLERK_PROXY_URL`: optional server-side proxy URL. Production defaults to `https://studywithatea.vercel.app/__clerk`; set the same URL in Vercel if you prefer explicit configuration. It is not applied in local development.
+- `VITE_CLERK_PUBLISHABLE_KEY`: public Clerk key used by Clerk.js. Must match the server's Clerk instance. Use `pk_test_...` locally and `pk_live_...` in Vercel Production.
+- `VITE_CLERK_PROXY_URL`: optional public client proxy URL. Production defaults to the deployed origin plus `/__clerk`; set it to `https://studywithatea.vercel.app/__clerk` in Vercel only if explicitly overriding the default. Leave it unset locally.
+- `CLERK_DEBUG`: optional server-only middleware diagnostics flag; leave `false` after troubleshooting.
 - `DATABASE_URL`: PostgreSQL connection string. Production connections use TLS certificate verification.
 - `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`: LiveKit endpoint and **server-only** credentials.
 - `PORT`, `NODE_ENV`: HTTP port and environment mode.
 
 Google OAuth and email/password or email-code methods are configured in Clerk, not implemented as a custom identity system. LiveKit tokens are minted on the server for authorized room members and expire after 15 minutes. HTTPS/WSS is required in production. The included initial SQL schema is for a fresh database; use versioned migrations for later schema changes.
+
+## Vercel production deployment
+
+This is a Vite + Express application, not a Next.js application: it has no Next.js version, `@clerk/nextjs`, `proxy.ts`, `middleware.ts`, or React `ClerkProvider`. The Vercel entrypoint is the root `/server.ts`, which default-exports the Express app. `vercel.json` selects Vercel's Express framework, builds the Vite SPA, and includes `dist/**` in the Express function bundle; Express Clerk middleware serves the `/__clerk/*` proxy requests. Local development keeps using the Clerk Development frontend API, while production uses `/__clerk`.
+
+Set the production environment variables listed above in Vercel, then redeploy. The browser-side `VITE_` values are embedded at build time, so changing them always requires a new build/deployment. The Clerk production instance must also have proxying enabled with `https://studywithatea.vercel.app/__clerk`, and the domain must pass Clerk's **Verify proxy** check after deployment. The live deployment was observed returning Vercel 404s for `/__clerk/*` and `/api/*` before these source changes. This repository change cannot deploy the app or update Vercel/Clerk Dashboard settings.
 
 ## API foundation
 
