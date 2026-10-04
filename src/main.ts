@@ -1,4 +1,5 @@
 import './style.css'
+import { initializeInfrastructure } from './auth'
 import { COLORS, duration, escapeHtml, readData, today, uid, writeData, type AppData, type View } from './store'
 import { footer, header, icon } from './ui'
 import { bankView, reviewView } from './views'
@@ -81,4 +82,5 @@ root.addEventListener('change', event => { const target = event.target as HTMLSe
 window.addEventListener('hashchange', () => { const view = location.hash.slice(1); if (['overview', 'subjects', 'questions', 'review', 'plan', 'notes'].includes(view)) setView(view as View) })
 window.addEventListener('storage', event => { if (event.key === 'sem3-command-center-v1') { Object.assign(data, readData()); render() } })
 render()
+void initializeInfrastructure()
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load', () => { void navigator.serviceWorker.register('/sw.js').catch(error => console.warn('Offline support could not be enabled.', error)) })
