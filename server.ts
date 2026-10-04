@@ -1,4 +1,9 @@
 import './server/env.ts'
+import express from 'express'
 import app from './server/app'
 
-export default app
+// Vercel's Express adapter requires the entrypoint itself to import Express.
+const vercelApp = express()
+vercelApp.use(app)
+
+export default vercelApp
