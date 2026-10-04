@@ -1,6 +1,8 @@
-# Sem 3 Command Center
+# studyspace
 
-An offline-first study tracker and question bank for the third semester. This repository currently contains the Phase 0 TypeScript application scaffold; persistent study data, question-bank features, and offline caching have not been implemented yet.
+A lightweight, offline-first learning workspace for self-directed learners. Create your own learning paths, plan optional next steps, capture searchable notes, practice saved questions, and track focus sessions. No curriculum is assumed, and study data stays in this browser.
+
+Learning paths, tasks, notes, practice prompts, review schedules, and study sessions are stored locally. The app shell is cached for offline startup. There is no account, analytics, or remote sync.
 
 ## Requirements
 
