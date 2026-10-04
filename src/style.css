@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #252b27;
+  background: #f5f5f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --muted: #747b75;
+  --accent: #37634e;
+  --line: #e8e9e3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  width: min(100% - 64px, 1120px);
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+.topbar {
+  display: flex;
+  height: 84px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.wordmark-icon {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 12px;
+  background: #e5ebe3;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.wordmark-muted {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.semester-label,
+.eyebrow,
+.card-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.semester-label {
+  color: var(--muted);
+}
+
+.main-content {
+  width: min(100%, 820px);
+  margin-inline: auto;
+  padding-top: clamp(76px, 12vh, 120px);
+}
+
+.welcome {
+  max-width: 620px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 22px;
+  color: var(--accent);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6d9b77;
+  box-shadow: 0 0 0 4px #e7eee5;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: Manrope, sans-serif;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: clamp(38px, 7vw, 58px);
+  font-weight: 600;
+  letter-spacing: -2.8px;
+  line-height: 1.14;
+}
+
+h1 span {
+  color: #7d857d;
+}
+
+.welcome-copy {
+  max-width: 490px;
+  margin-bottom: 14px;
+  color: #6f766f;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.app-status {
+  min-height: 20px;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 47px;
+}
+
+.workspace-card {
+  position: relative;
+  display: flex;
+  min-height: 182px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.workspace-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd8cc;
+}
+
+.card-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 11px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.subjects-icon {
+  background: #edf1e8;
+  color: #597448;
+}
+
+.questions-icon {
+  background: #f3eee7;
+  color: #906d43;
+}
+
+.card-kicker {
+  margin-bottom: 7px;
+  color: #8a9088;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+}
+
+.workspace-card h2 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.card-content > p:last-child {
+  max-width: 245px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 25px;
+  right: 23px;
+  color: #a0a69f;
+  font-size: 15px;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 70px;
+  padding: 18px 0 25px;
+  border-top: 1px solid var(--line);
+  color: #878d86;
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    width: min(100% - 36px, 1120px);
+  }
+
+  .topbar {
+    height: 70px;
+  }
+
+  .main-content {
+    padding-top: 70px;
+  }
+
+  h1 {
+    letter-spacing: -1.8px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+  }
+
+  .workspace-card {
+    min-height: 160px;
+  }
+
+  .page-footer {
+    flex-direction: column;
+    margin-top: 45px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

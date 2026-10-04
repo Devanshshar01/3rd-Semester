@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f2" />
+    <meta
+      name="description"
+      content="A calm, local-first workspace for organizing your third-semester studies."
+    />
+    <title>Sem 3 Command Center</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#home" aria-label="Sem 3 Command Center home">
+          <span class="wordmark-icon" aria-hidden="true">03</span>
+          <span>study<span class="wordmark-muted">space</span></span>
+        </a>
+        <span class="semester-label">THIRD SEMESTER</span>
+      </header>
+
+      <main id="home" class="main-content">
+        <section class="welcome" aria-labelledby="welcome-heading">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> YOUR SEMESTER, IN ONE PLACE</p>
+          <h1 id="welcome-heading">A little more clarity.<br /><span>A lot less cramming.</span></h1>
+          <p class="welcome-copy">
+            Your study space is ready. Start by setting up your subjects and gathering the questions you want to practice.
+          </p>
+          <p id="app-status" class="app-status" role="status">Starting your study space…</p>
+        </section>
+
+        <section class="workspace" aria-label="Study workspace">
+          <article class="workspace-card">
+            <div class="card-icon subjects-icon" aria-hidden="true">01</div>
+            <div class="card-content">
+              <p class="card-kicker">BUILD YOUR PLAN</p>
+              <h2>Subjects</h2>
+              <p>Your semester subjects and study progress will live here.</p>
+            </div>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="workspace-card">
+            <div class="card-icon questions-icon" aria-hidden="true">02</div>
+            <div class="card-content">
+              <p class="card-kicker">PRACTICE WITH PURPOSE</p>
+              <h2>Question bank</h2>
+              <p>Collect practice questions and revisit them when you’re ready.</p>
+            </div>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <span>Made for the everyday study session.</span>
+          <span>Local-first foundation <span aria-hidden="true">·</span> More coming soon</span>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
