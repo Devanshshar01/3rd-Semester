@@ -23,7 +23,7 @@ Create learning paths, notes, tasks, practice questions, and study sessions. Per
 
 1. Create a Clerk application and enable email and Google sign-in in its dashboard. Add `http://localhost:3000` to allowed origins/redirect URLs.
 2. Create a PostgreSQL database, then apply `database/schema.sql` (for example, `psql "$env:DATABASE_URL" -f database/schema.sql` in PowerShell).
-3. Copy `.env.example` to `.env` and replace the example values. Keep `CLERK_SECRET_KEY`, `DATABASE_URL`, and `LIVEKIT_API_SECRET` server-side; only the Clerk publishable key is exposed to the browser.
+3. Copy `.env.example` to `.env` and replace the example values (or use `.env.local` for local-only credentials). Keep `CLERK_SECRET_KEY`, `DATABASE_URL`, and `LIVEKIT_API_SECRET` server-side; only the Clerk publishable key is exposed to the browser. Clerk's prebuilt sign-in/sign-up UI is bundled with `@clerk/ui`; install dependencies with `npm install` before building.
 4. Install and run the combined API + Vite server:
 
 ```bash

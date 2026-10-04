@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import './env.ts'
 import express from 'express'
 import { clerkMiddleware } from '@clerk/express'
 import { createServer as createViteServer } from 'vite'
